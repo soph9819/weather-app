@@ -39,6 +39,7 @@ function searchCity(event) {
   event.preventDefault();
   let userCityInput = document.querySelector("#search-area");
   console.log(userCityInput.value);
+  userCityInput.value = userCityInput.value.toLowerCase();
   currentCity.innerHTML = `${userCityInput.value}`;
   //capitalize userinput at some point
   axios //trim etc. {usercityinput} at some point
@@ -59,24 +60,6 @@ let currentTemp = document.querySelector("#current-temp");
 let apiKey = "515c9ddbeb3cda9061acfab71031839e";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=`;
 
-//converted = 0 means the app is in F, if it = 1, it is in C
-/* OLD TEMP CONVERTER
-            function tempConversion() {
-              console.log("clicked");
-              if (converted == 0) {
-                converted = converted + 1;
-                console.log(converted);
-                currentTemp.innerHTML = "24° ";
-                tempConverter.innerHTML = "switch to F";
-              } else {
-                converted = converted - 1;
-                console.log(converted);
-                currentTemp.innerHTML = "75° ";
-                tempConverter.innerHTML = "switch to C";
-              }
-            }
-            tempConverter.addEventListener("click", tempConversion);
-      */
 //upon opening the app, current location weather is shown
 function retrievePosition(position) {
   let lat = position.coords.latitude;
@@ -92,6 +75,7 @@ function retrievePosition(position) {
     //response.data.name;
     currentTemp.innerHTML = `${Math.round(response.data.main.temp)}°F `;
     //let currentCity = document.querySelector("#current-city");
+    response.data.name = response.data.name.toLowerCase();
     currentCity.innerHTML = `${response.data.name}`;
     console.log(response.data.main.temp);
     currentHigh.innerHTML = `${Math.round(response.data.main.temp_max)}°F`;
