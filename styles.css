@@ -1,12 +1,27 @@
+.container {
+  background-color: #fbc2c3;
+  padding-left: 100px;
+  padding-bottom: 100px;
+  padding-right: 100px;
+  padding-top: 40px;
+  border-radius: 20px;
+}
 .capsule {
   display: block;
-  border-color: black;
-  border-radius: 50px;
-  background-color: #ffd4d5;
+  /*border-color: black;*/
+  /*border-radius: 50px;*/
+  border-radius: 72% 28% 76% 24% / 12% 91% 9% 88%;
   margin-top: 20px;
   margin: 0 auto;
   position: relative;
   top: 20px;
+  padding: 50px;
+  /* From https://css.glass */
+  background: rgba(254, 239, 239, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 212, 213, 0.3);
 }
 .search-area {
   position: absolute;
