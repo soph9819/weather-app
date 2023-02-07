@@ -26,7 +26,7 @@
 .search-area {
   position: absolute;
   display: inline;
-  right: 40px;
+  right: 130px;
   color: #010103;
 }
 #search-area {
@@ -72,31 +72,6 @@ h1 {
   left: -5px;
   font-family: PT Mono, helvetica, arial, sans-serif;
 }
-/*Old temp converter
-      #temp-converter {
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 17px;
-        border-radius: 10px;
-        position: absolute;
-        margin: 0 auto;
-        transition: all 200ms ease;
-        background-color: #010103;
-        color: white;
-        border: 1px solid rgb(107, 107, 107);
-        padding-bottom: 0px;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        margin-left: 947px;
-        text-align: center;
-        border-color: #010103;
-        bottom: -10px;
-      }
-      #temp-converter:hover {
-        background: #ec9ca0;
-        border-color: #ec9ca0;
-        cursor: pointer;
-      }
-      */
 .current-weather-holder {
   display: block;
   position: relative;
@@ -119,7 +94,7 @@ h1 {
 .future-weather-days {
   position: relative;
   text-align: center;
-  left: 48px;
+  left: 110px;
   font-family: PT Mono, helvetica, arial, sans-serif;
   color: #010103;
   top: -30px;
