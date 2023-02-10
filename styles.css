@@ -33,14 +33,14 @@ body {
   position: absolute;
   display: inline;
   right: 130px;
-  color: #010103;
+  color: #222227;
 }
 #search-area {
   border-radius: 50px;
   font-family: PT Mono, helvetica, arial, sans-serif;
 }
 #search-area-button {
-  background-color: #010103;
+  background-color: #222227;
   color: white;
   border-radius: 10px;
   font-family: PT Mono, helvetica, arial, sans-serif;
@@ -58,8 +58,8 @@ body {
   cursor: pointer;
 }
 h1 {
-  /*Current-weather capsule*/
-  color: #010103;
+  /*Current-weather capsule (original color #010103*/
+  color: #222227;
   display: inline;
   padding-left: 30px;
   padding-bottom: 0px;
@@ -72,7 +72,7 @@ h1 {
 .current-temp {
   display: inline;
   position: relative;
-  color: #010103;
+  color: #222227;
   font-weight: 500;
   font-size: 15px;
   left: -5px;
@@ -83,7 +83,7 @@ h1 {
   position: relative;
   padding-top: 12px;
   padding-left: 45px;
-  color: #010103;
+  color: #222227;
   top: -15px;
   font-family: PT Mono, helvetica, arial, sans-serif;
 }
@@ -102,7 +102,7 @@ h1 {
   text-align: center;
   left: 110px;
   font-family: PT Mono, helvetica, arial, sans-serif;
-  color: #010103;
+  color: #222227;
   top: -30px;
   font-size: 15px;
 }
@@ -120,11 +120,11 @@ h1 {
   font-size: 15px;
   border-radius: 10px;
   transition: all 200ms ease;
-  background-color: #010103;
+  background-color: #222227;
   color: white;
   border: 1px solid rgb(107, 107, 107);
   text-align: center;
-  border-color: #010103;
+  border-color: #222227;
   position: absolute;
   bottom: 50px;
   right: 40px;
