@@ -2,7 +2,7 @@ body {
   background-color: #ceffef;
 }
 .credits {
-  padding-left: 160px;
+  padding-left: 220px;
 }
 .container {
   background-color: #fbc2c3;
@@ -11,9 +11,13 @@ body {
   padding-right: 100px;
   padding-top: 40px;
   border-radius: 20px;
+  max-width: 1200px;
+  min-width: 1000px;
 }
 .capsule {
   display: block;
+  max-width: 1000px;
+  min-width: 900px;
   /*border-color: black;*/
   /*border-radius: 50px;*/
   border-radius: 72% 28% 76% 24% / 12% 91% 9% 88%;
