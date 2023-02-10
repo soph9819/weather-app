@@ -1,3 +1,9 @@
+body {
+  background-color: #ceffef;
+}
+.credits {
+  padding-left: 160px;
+}
 .container {
   background-color: #fbc2c3;
   padding-left: 100px;
