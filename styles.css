@@ -88,7 +88,7 @@ h1 {
   padding-top: 18px;
   padding-left: 45px;
   color: #222227;
-  top: -15px;
+  top: 20px;
   font-family: PT Mono, helvetica, arial, sans-serif;
 }
 .current-weather-emoji {
@@ -101,13 +101,28 @@ h1 {
   display: inline-block;
 }
 
+.current-weather-conditions {
+  display: inline-block;
+  position: relative;
+  padding-left: 330px;
+  color: #222227;
+  font-family: PT Mono, helvetica, arial, sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  top: -75px;
+}
+
+.current-weather-conditions ul {
+  list-style: none;
+}
+
 .future-weather-days {
   position: relative;
   text-align: center;
   left: 110px;
   font-family: PT Mono, helvetica, arial, sans-serif;
   color: #222227;
-  top: -30px;
+  top: -35px;
   font-size: 15px;
 }
 
@@ -130,7 +145,7 @@ h1 {
   text-align: center;
   border-color: #222227;
   position: absolute;
-  bottom: 80px;
+  bottom: 115px;
   right: 75px;
 }
 #current-loc-button:hover {
