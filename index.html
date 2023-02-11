@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- ADD THIS BACK IN SANDBOX <link rel="stylesheet" href="src/styles.css" /> -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -45,6 +44,7 @@
 
           <div class="current-temp">
             <span id="current-temp"></span>
+            <span id="conditions">sunny</span>
           </div>
         </h1>
 
@@ -52,13 +52,18 @@
           <div class="current-weather-emoji">🌞</div>
           <div class="current-weather">
             <span class="todays-date">sunday 5:30pm</span>
+
             <!--Need date and time to change based on location searched-->
             <br />
             high <strong><span id="current-high"></span></strong> | low
-            <strong><span id="current-low"></span></strong
-            ><button id="current-loc-button">current location</button>
+            <strong><span id="current-low"></span></strong>
+            <br />
+            <span id="wind-speed"><strong>wind speed: </strong></span>
+            <br />
+            <button id="current-loc-button">current location</button>
           </div>
         </div>
+
         <!--End of .current-weather-holder-->
         <br />
         <div class="future-weather-days">
