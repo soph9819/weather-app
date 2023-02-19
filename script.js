@@ -55,8 +55,8 @@ searchCityForm.addEventListener("submit", searchCity);
 let tempConverter = document.querySelector("#temp-converter");
 console.log(tempConverter);
 
-//let converted = 0; Old Stuff from conversion formula
 let currentTemp = document.querySelector("#current-temp");
+let currentCondition = document.querySelector("#current-condition");
 let apiKey = "515c9ddbeb3cda9061acfab71031839e";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=`;
 
@@ -81,9 +81,11 @@ function retrievePosition(position) {
     currentHigh.innerHTML = `${Math.round(response.data.main.temp_max)}°F`;
     currentLow.innerHTML = `${Math.round(response.data.main.temp_min)}°F`;
     console.log(response.data.main.temp_min);
-    //add high lows at some point
+    console.log(response.data.weather[0].description);
+    currentCondition.innerHTML = `${response.data.weather[0].description}`;
   }
 }
+
 navigator.geolocation.getCurrentPosition(retrievePosition);
 
 let currentLocButton = document.querySelector("#current-loc-button");

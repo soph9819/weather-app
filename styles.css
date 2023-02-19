@@ -116,6 +116,9 @@ h1 {
   list-style: none;
 }
 
+#current-condition {
+  text-transform: lowercase;
+}
 .future-weather-days {
   position: relative;
   text-align: center;
