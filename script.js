@@ -57,6 +57,8 @@ console.log(tempConverter);
 
 let currentTemp = document.querySelector("#current-temp");
 let currentCondition = document.querySelector("#current-condition");
+let windSpeed = document.querySelector("#wind-speed");
+let humidity = document.querySelector("#humidity");
 let apiKey = "515c9ddbeb3cda9061acfab71031839e";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=`;
 
@@ -83,6 +85,8 @@ function retrievePosition(position) {
     console.log(response.data.main.temp_min);
     console.log(response.data.weather[0].description);
     currentCondition.innerHTML = `${response.data.weather[0].description}`;
+    windSpeed.innerHTML = `wind: ${Math.round(response.data.wind.speed)} km/h`;
+    humidity.innerHTML = `humidity: ${response.data.main.humidity}%`;
   }
 }
 
