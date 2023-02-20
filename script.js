@@ -1,5 +1,31 @@
-let dateInfo = new Date();
+let days = [
+  "sunday",
+  "monday",
+  "tuesday",
+  "wednesday",
+  "thursday",
+  "friday",
+  "saturday",
+];
+function formatDate(timestamp) {
+  //calculating date
+  let dateInfo = new Date();
+  let currentHour = dateInfo.getHours();
+  let currentMinute = dateInfo.getMinutes();
+  let dayOfWeek = dateInfo.getDay();
+  dayOfWeek = days[dateInfo.getDay()];
+  if (currentHour < 10) {
+    currentHour = `0${currentHour}`;
+  }
+  if (currentMinute < 10) {
+    currentMinute = `0${currentMinute}`;
+  }
+  return `${dayOfWeek} ${currentHour}:${currentMinute}`;
+}
 let weatherEmoji = document.querySelector("#current-weather-icon");
+/* OLD DATE CALCULATIONS
+let dateInfo = new Date();
+
 
 console.log(dateInfo.getDay());
 let todaysDate = document.querySelector(".todays-date");
@@ -23,6 +49,7 @@ if (currentMinute < 10) {
 let dayOfWeek = dateInfo.getDay();
 dayOfWeek = days[dateInfo.getDay()]; //converting number to NAME of the day of the week
 todaysDate.innerHTML = `${dayOfWeek} ${currentHour}:${currentMinute}`;
+*/
 
 //showing weather for searched location or ${currentCity}
 let currentHigh = document.querySelector("#current-high");
@@ -47,6 +74,7 @@ function displayCurrentCityTemp(response) {
   );
   windSpeed.innerHTML = `wind: ${Math.round(response.data.wind.speed)} km/h`; //wind
   humidity.innerHTML = `humidity: ${response.data.main.humidity}%`; //humidity
+  //todaysDate.innerHTML = formatDate(response.data.dr * 1000);
 }
 
 //setting city that is searched to show in app
@@ -106,6 +134,9 @@ function retrievePosition(position) {
     );
     windSpeed.innerHTML = `wind: ${Math.round(response.data.wind.speed)} km/h`; //wind
     humidity.innerHTML = `humidity: ${response.data.main.humidity}%`; //humidity
+    //new date time structuring
+    let todaysDate = document.querySelector(".todays-date");
+    todaysDate.innerHTML = `as of: ${formatDate(response.data.dr * 1000)}`;
   }
 }
 
