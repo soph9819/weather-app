@@ -36,24 +36,33 @@ body {
 .search-area {
   position: absolute;
   display: inline;
-  right: 130px;
   color: #222227;
+  right: 150px;
+  font-size: 13px;
+  top: 90px;
 }
 #search-area {
   border-radius: 50px;
   font-family: PT Mono, helvetica, arial, sans-serif;
+  border-color: #ec9ca0;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: 2px 5px 10px #ec9ca067;
 }
 #search-area-button {
-  background-color: #222227;
-  color: white;
+  background-color: #ffffff;
+  color: black;
   border-radius: 10px;
   font-family: PT Mono, helvetica, arial, sans-serif;
-  font-size: 15px;
+
   transition: all 200ms ease;
   box-shadow: none;
   border-style: none;
   padding-top: 3px;
   padding-bottom: 3px;
+  box-shadow: 2px 5px 10px #ec9ca0;
+  /*margin-left: 280px;
+  margin-top: -65px;*/
 }
 
 #search-area-button:hover {
@@ -77,7 +86,7 @@ h1 {
   display: inline;
   position: relative;
   color: #222227;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 15px;
   left: -5px;
   font-family: PT Mono, helvetica, arial, sans-serif;
@@ -139,17 +148,18 @@ h1 {
 
 #current-loc-button {
   font-family: PT Mono, Arial, Helvetica, sans-serif;
-  font-size: 15px;
+  font-size: 13px;
   border-radius: 10px;
   transition: all 200ms ease;
-  background-color: #222227;
-  color: white;
-  border: 1px solid rgb(107, 107, 107);
+  background-color: #ffffff;
+  color: black;
   text-align: center;
-  border-color: #222227;
   position: absolute;
-  bottom: 115px;
-  right: 75px;
+  bottom: 154px;
+  right: 340px;
+  padding: 1px;
+  box-shadow: 2px 5px 10px #ec9ca0;
+  border-style: none;
 }
 #current-loc-button:hover {
   background: #ec9ca0;
