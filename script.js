@@ -26,11 +26,15 @@ todaysDate.innerHTML = `${dayOfWeek} ${currentHour}:${currentMinute}`;
 let currentHigh = document.querySelector("#current-high");
 let currentLow = document.querySelector("#current-low");
 
+//function for searched cities
 function displayCurrentCityTemp(response) {
   console.log(response.data.main.temp);
   currentTemp.innerHTML = `${Math.round(response.data.main.temp)}°F`;
   currentHigh.innerHTML = `${Math.round(response.data.main.temp_max)}°F`;
   currentLow.innerHTML = `${Math.round(response.data.main.temp_min)}°F`;
+  currentCondition.innerHTML = `${response.data.weather[0].description}`; //current conditions
+  windSpeed.innerHTML = `wind: ${Math.round(response.data.wind.speed)} km/h`; //wind
+  humidity.innerHTML = `humidity: ${response.data.main.humidity}%`; //humidity
 }
 
 //setting city that is searched to show in app
@@ -66,27 +70,20 @@ let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=`;
 function retrievePosition(position) {
   let lat = position.coords.latitude;
   let long = position.coords.longitude;
-  console.log(lat);
-  console.log(long);
   axios
     .get(`${apiUrl}${lat}&lon=${long}&units=imperial&appid=${apiKey}`)
     .then(findCityTemp);
 
   function findCityTemp(response) {
     console.log(response);
-    //response.data.name;
     currentTemp.innerHTML = `${Math.round(response.data.main.temp)}°F `;
-    //let currentCity = document.querySelector("#current-city");
     response.data.name = response.data.name.toLowerCase();
     currentCity.innerHTML = `${response.data.name}`;
-    console.log(response.data.main.temp);
-    currentHigh.innerHTML = `${Math.round(response.data.main.temp_max)}°F`;
-    currentLow.innerHTML = `${Math.round(response.data.main.temp_min)}°F`;
-    console.log(response.data.main.temp_min);
-    console.log(response.data.weather[0].description);
-    currentCondition.innerHTML = `${response.data.weather[0].description}`;
-    windSpeed.innerHTML = `wind: ${Math.round(response.data.wind.speed)} km/h`;
-    humidity.innerHTML = `humidity: ${response.data.main.humidity}%`;
+    currentHigh.innerHTML = `${Math.round(response.data.main.temp_max)}°F`; //highest temp
+    currentLow.innerHTML = `${Math.round(response.data.main.temp_min)}°F`; //lowest temp
+    currentCondition.innerHTML = `${response.data.weather[0].description}`; //current conditions
+    windSpeed.innerHTML = `wind: ${Math.round(response.data.wind.speed)} km/h`; //wind
+    humidity.innerHTML = `humidity: ${response.data.main.humidity}%`; //humidity
   }
 }
 
