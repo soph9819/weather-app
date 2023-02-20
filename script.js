@@ -1,4 +1,6 @@
 let dateInfo = new Date();
+let weatherEmoji = document.querySelector("#current-weather-icon");
+
 console.log(dateInfo.getDay());
 let todaysDate = document.querySelector(".todays-date");
 let days = [
@@ -33,6 +35,16 @@ function displayCurrentCityTemp(response) {
   currentHigh.innerHTML = `${Math.round(response.data.main.temp_max)}°F`;
   currentLow.innerHTML = `${Math.round(response.data.main.temp_min)}°F`;
   currentCondition.innerHTML = `${response.data.weather[0].description}`; //current conditions
+  //setting emoji based on current conditions
+  weatherEmoji.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  //adding alt image info
+  weatherEmoji.setAttribute(
+    "alt",
+    `emoji representing ${response.data.weather[0].description}`
+  );
   windSpeed.innerHTML = `wind: ${Math.round(response.data.wind.speed)} km/h`; //wind
   humidity.innerHTML = `humidity: ${response.data.main.humidity}%`; //humidity
 }
@@ -82,6 +94,16 @@ function retrievePosition(position) {
     currentHigh.innerHTML = `${Math.round(response.data.main.temp_max)}°F`; //highest temp
     currentLow.innerHTML = `${Math.round(response.data.main.temp_min)}°F`; //lowest temp
     currentCondition.innerHTML = `${response.data.weather[0].description}`; //current conditions
+    //setting emoji based on current conditions
+    weatherEmoji.setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
+    //adding alt image info
+    weatherEmoji.setAttribute(
+      "alt",
+      `emoji representing ${response.data.weather[0].description}`
+    );
     windSpeed.innerHTML = `wind: ${Math.round(response.data.wind.speed)} km/h`; //wind
     humidity.innerHTML = `humidity: ${response.data.main.humidity}%`; //humidity
   }
