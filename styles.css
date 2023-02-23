@@ -82,15 +82,29 @@ h1 {
   font-family: PT Mono, helvetica, arial, sans-serif;
   font-weight: 600;
 }
-.current-temp {
+.current-temp-holder {
   display: inline;
   position: relative;
   color: #222227;
   font-weight: 600;
-  font-size: 15px;
+  font-size: 20px;
   left: -5px;
   font-family: PT Mono, helvetica, arial, sans-serif;
 }
+
+.units {
+  font-size: 12px;
+}
+
+.units a {
+  color: #e97d83;
+  text-decoration: none;
+}
+
+.units a:hover {
+  color: #e94c54;
+}
+
 .current-weather-holder {
   display: block;
   position: relative;
@@ -113,12 +127,12 @@ h1 {
 .current-weather-conditions {
   display: inline-block;
   position: relative;
-  padding-left: 330px;
+  padding-left: 390px;
   color: #222227;
   font-family: PT Mono, helvetica, arial, sans-serif;
   font-weight: 500;
   font-size: 15px;
-  top: -75px;
+  top: -79px;
 }
 
 .current-weather-conditions ul {
@@ -165,4 +179,14 @@ h1 {
   background: #ec9ca0;
   border-color: #ec9ca0;
   cursor: pointer;
+}
+
+.current-temp-holder .active {
+  color: #222227;
+  cursor: default;
+  text-decoration: none;
+}
+
+.current-temp-holder .active:hover {
+  text-decoration: none;
 }
