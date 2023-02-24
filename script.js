@@ -146,3 +146,6 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
+
+//have active class for Celsius button become active once something is searched
+//OR have app acknowledge what unit has been selected for future searches or current loc button presses
