@@ -190,3 +190,7 @@ h1 {
 .current-temp-holder .active:hover {
   text-decoration: none;
 }
+
+.future-lows {
+  opacity: 0.5;
+}

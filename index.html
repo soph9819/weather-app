@@ -30,7 +30,7 @@
           <form id="search-city-form">
             <input
               type="text"
-              placeholder="search for a city"
+              placeholder="search by city"
               autocomplete="off"
               autofocus="on"
               id="search-area"
@@ -82,29 +82,19 @@
         <div class="future-weather-days">
           <div class="row">
             <div class="col-2">
-              mon
-              <div class="future-weather-emojis">⛅️</div>
-              <div class="future-weather-high-low">82° | 76°</div>
-            </div>
-            <div class="col-2">
-              tues
-              <div class="future-weather-emojis">🌞</div>
-              <div class="future-weather-high-low">83° | 76°</div>
-            </div>
-            <div class="col-2">
-              wed
-              <div class="future-weather-emojis">🌧️</div>
-              <div class="future-weather-high-low">79° | 75°</div>
-            </div>
-            <div class="col-2">
-              thurs
-              <div class="future-weather-emojis">⛈️</div>
-              <div class="future-weather-high-low">83° | 75°</div>
-            </div>
-            <div class="col-2">
-              fri
-              <div class="future-weather-emojis">🍃</div>
-              <div class="future-weather-high-low">82° | 77°</div>
+              <span class="future-day-of-week">mon</span>
+              <div class="future-weather-emojis">
+                <img
+                  src="http://openweathermap.org/img/wn/50d@2x.png"
+                  alt=""
+                  width="80"
+                  id="future-weather-icon1"
+                />
+              </div>
+              <div class="future-weather-high-low">
+                <span id="future-high-1">10°</span> |
+                <span class="future-lows" id="future-low-1">8°</span>
+              </div>
             </div>
           </div>
         </div>
