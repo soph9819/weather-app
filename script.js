@@ -28,7 +28,7 @@ let weatherEmoji = document.querySelector("#current-weather-icon");
 let currentHigh = document.querySelector("#current-high");
 let currentLow = document.querySelector("#current-low");
 
-//function for searched cities
+//function for SEARCHED cities
 function displayCurrentCityTemp(response) {
   console.log(response.data.main.temp);
   currentTemp.innerHTML = `${Math.round(response.data.main.temp)}`;
@@ -50,6 +50,8 @@ function displayCurrentCityTemp(response) {
   //todaysDate.innerHTML = formatDate(response.data.dr * 1000);
   celsiusTemperature = response.data.main.temp;
   displayCelsiusTemperature(Event);
+  //turn event.PreventDefault back on down in celcius conversion (a comment will highlight this) once getForecast is done
+  getForecast(response.data.coord);
 }
 
 //setting city that is searched to show in app
@@ -76,7 +78,7 @@ let currentTemp = document.querySelector("#current-temp");
 let currentCondition = document.querySelector("#current-condition");
 let windSpeed = document.querySelector("#wind-speed");
 let humidity = document.querySelector("#humidity");
-let apiKey = "515c9ddbeb3cda9061acfab71031839e";
+let apiKey = "ca5af28648d86b7925348bb9fb85cd3a"; //changed https://www.shecodes.io/learn/open_weather_api_keys from 515c9ddbeb3cda9061acfab71031839e
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=`;
 
 //upon opening the app, current location weather is shown
@@ -88,7 +90,6 @@ function retrievePosition(position) {
     .then(findCityTemp);
 
   function findCityTemp(response) {
-    console.log(response);
     currentTemp.innerHTML = `${Math.round(response.data.main.temp)}`;
     response.data.name = response.data.name.toLowerCase();
     currentCity.innerHTML = `${response.data.name}`;
@@ -135,7 +136,7 @@ function displayFahrenheitTemperature(event) {
 }
 
 function displayCelsiusTemperature(event) {
-  event.preventDefault();
+  //event.preventDefault(); //COMMENTED THIS  BECAUSE IT WAS AFFECTING FUTURE FORECAST CONSOLE LOG IN displayCurrentCityTemp()??
   currentTemp.innerHTML = Math.round(celsiusTemperature);
   fahrenheitLink.classList.remove("active");
   celsiusLink.classList.add("active");
@@ -151,7 +152,8 @@ celsiusLink.addEventListener("click", displayCelsiusTemperature);
 //OR have app acknowledge what unit has been selected for future searches or current loc button presses
 
 //Future forecast
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data);
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
   let days = ["Sat", "Sun", "Mon", "Tues"];
@@ -174,7 +176,6 @@ function displayForecast() {
         8°
       </span>
       </div></div>`;
-    console.log(forecastHTML);
   });
 
   forecastHTML = forecastHTML + `</div>`; //closing .row div
@@ -182,5 +183,11 @@ function displayForecast() {
   //forecastElement addresses the area the forecast lives in html and the formula puts forecastHTML into forecastElement
   forecastElement.innerHTML = forecastHTML;
 }
-
-displayForecast();
+//getting forecast info
+function getForecast(coord) {
+  //using seperate shecodes api for forecast
+  //possibly go back and change all apiUrl to shecodes api
+  let apiKeyForecast = "34432baa786b00b2to4b10aab94b883f";
+  let apiUrlForecast = `https://api.shecodes.io/weather/v1/forecast?lon=${coord.lon}&lat=${coord.lat}&key=${apiKeyForecast}&unit=metric`;
+  axios.get(apiUrlForecast).then(displayForecast);
+}
