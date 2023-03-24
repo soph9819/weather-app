@@ -153,27 +153,28 @@ celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 //Future forecast
 function displayForecast(response) {
-  console.log(response.data);
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
-  let days = ["Sat", "Sun", "Mon", "Tues"];
-  days.forEach(function (day) {
+  console.log(response.data);
+  forecast.forEach(function (forecastDay) {
+    //forEach cycling through the array of forecast days and temps (not using [0] in forcastDay.day etc)
     forecastHTML =
       forecastHTML +
       `<div class="col-2">
-    <span class="future-day-of-week">${day}</span>
+    <span class="future-day-of-week">${forecastDay.temperature.day}</span>
     <div class="future-weather-emojis">
       <img
-        src="http://openweathermap.org/img/wn/50d@2x.png"
+        src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${forecastDay.condition.icon}.png"
         alt=""
         width="80"
         id="future-weather-icon1"
       />
     </div>
     <div class="future-weather-high-low">
-      <span id="future-high">10°</span> |
+      <span id="future-high">${forecastDay.temperature.maximum}°</span> |
       <span class="future-lows" id="future-low">
-        8°
+        ${forecastDay.temperature.minimum}°
       </span>
       </div></div>`;
   });
