@@ -149,3 +149,38 @@ celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 //have active class for Celsius button become active once something is searched
 //OR have app acknowledge what unit has been selected for future searches or current loc button presses
+
+//Future forecast
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Sat", "Sun", "Mon", "Tues"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-2">
+    <span class="future-day-of-week">${day}</span>
+    <div class="future-weather-emojis">
+      <img
+        src="http://openweathermap.org/img/wn/50d@2x.png"
+        alt=""
+        width="80"
+        id="future-weather-icon1"
+      />
+    </div>
+    <div class="future-weather-high-low">
+      <span id="future-high">10°</span> |
+      <span class="future-lows" id="future-low">
+        8°
+      </span>
+      </div></div>`;
+    console.log(forecastHTML);
+  });
+
+  forecastHTML = forecastHTML + `</div>`; //closing .row div
+  //Stored a single forecast column into forecastHTML,
+  //forecastElement addresses the area the forecast lives in html and the formula puts forecastHTML into forecastElement
+  forecastElement.innerHTML = forecastHTML;
+}
+
+displayForecast();

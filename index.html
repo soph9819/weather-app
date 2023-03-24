@@ -79,25 +79,8 @@
         </span>
         <!--End of .current-weather-conditions-->
         <br />
-        <div class="future-weather-days">
-          <div class="row">
-            <div class="col-2">
-              <span class="future-day-of-week">mon</span>
-              <div class="future-weather-emojis">
-                <img
-                  src="http://openweathermap.org/img/wn/50d@2x.png"
-                  alt=""
-                  width="80"
-                  id="future-weather-icon1"
-                />
-              </div>
-              <div class="future-weather-high-low">
-                <span id="future-high-1">10°</span> |
-                <span class="future-lows" id="future-low-1">8°</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div class="future-weather-days" id="forecast"></div>
+        <!--Forecast-->
         <!--End of .future-weather-days-->
         <!--<button id="temp-converter">switch to celcius</button> OLD TEMP CONVERTER BUTTON-->
       </div>
@@ -105,10 +88,12 @@
     </div>
     <!--End of container-->
     <span class="credits"
-      ><small
-        ><a href="https://github.com/soph9819/weather-app">View Code</a> by
-        Sophie Fawkes</small
-      ></span
+      ><center>
+        <small
+          ><a href="https://github.com/soph9819/weather-app">View Code</a> by
+          Sophie Fawkes</small
+        >
+      </center></span
     >
     <script src="script.js"></script>
   </body>
