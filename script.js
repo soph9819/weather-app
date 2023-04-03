@@ -148,8 +148,12 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
-//have active class for Celsius button become active once something is searched
-//OR have app acknowledge what unit has been selected for future searches or current loc button presses
+function formatForecastDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+
+  return day;
+}
 
 //Future forecast
 function displayForecast(response) {
@@ -162,10 +166,14 @@ function displayForecast(response) {
     forecastHTML =
       forecastHTML +
       `<div class="col-2">
-    <span class="future-day-of-week">${forecastDay.temperature.day}</span>
+    <span class="future-day-of-week">${formatForecastDay(
+      forecastDay.temperature.day
+    )}</span>
     <div class="future-weather-emojis">
       <img
-        src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${forecastDay.condition.icon}.png"
+        src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
+          forecastDay.condition.icon
+        }.png"
         alt=""
         width="80"
         id="future-weather-icon1"
