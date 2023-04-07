@@ -171,7 +171,7 @@ function displayForecast(response) {
         `<div class="col-2">
     <span class="future-day-of-week">${formatForecastDay(
       forecastDay.time
-    )}</span> ${index}
+    )}</span>
     <div class="future-weather-emojis">
       <img
         src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
