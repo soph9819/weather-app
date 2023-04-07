@@ -152,7 +152,8 @@ function formatForecastDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
 
-  return day;
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
 }
 
 //Future forecast
@@ -161,14 +162,16 @@ function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
   console.log(response.data);
-  forecast.forEach(function (forecastDay) {
-    //forEach cycling through the array of forecast days and temps (not using [0] in forcastDay.day etc)
-    forecastHTML =
-      forecastHTML +
-      `<div class="col-2">
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      //lessening days shown, everything below is only performed 6 times (6 forecast days shown instead of 7)
+      //forEach cycling through the array of forecast days and temps (not using [0] in forcastDay.day etc)
+      forecastHTML =
+        forecastHTML +
+        `<div class="col-2">
     <span class="future-day-of-week">${formatForecastDay(
-      forecastDay.temperature.day
-    )}</span>
+      forecastDay.time
+    )}</span> ${index}
     <div class="future-weather-emojis">
       <img
         src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
@@ -180,11 +183,14 @@ function displayForecast(response) {
       />
     </div>
     <div class="future-weather-high-low">
-      <span id="future-high">${forecastDay.temperature.maximum}°</span> |
+      <span id="future-high">${Math.round(
+        forecastDay.temperature.maximum
+      )}°</span> |
       <span class="future-lows" id="future-low">
-        ${forecastDay.temperature.minimum}°
+        ${Math.round(forecastDay.temperature.minimum)}°
       </span>
       </div></div>`;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`; //closing .row div

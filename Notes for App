@@ -3,4 +3,6 @@ Notes for App
 ✅  # Add API call for forecast
   # Fill in filler content with actual future forecast data
   # Align current weather section
-  # high and low temps for current day unit conversion
+  # high and low temps for current day unit conversion OR REMOVE because shown in forecast
+  # set api for today's high low to shecodes api? or remove today from future forecast
+    # or add moon phase instead of high lows for today
