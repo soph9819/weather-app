@@ -25,6 +25,16 @@
     <div class="container">
       <div class="capsule">
         <br />
+
+        <h1>
+          <span id="current-city"></span>
+
+          <div class="current-temp-holder">
+            <span id="current-temp"></span>
+          </div>
+        </h1>
+        <br />
+        <span class="todays-date"></span>
         <!--Search bar-->
         <div class="search-area">
           <form id="search-city-form">
@@ -39,21 +49,11 @@
           </form>
         </div>
         <!--End of search area div-->
-        <h1>
-          <span id="current-city"></span>
-
-          <div class="current-temp-holder">
-            <span id="current-temp"></span>
-          </div>
-        </h1>
-
         <div class="current-weather-holder">
           <div class="current-weather-emoji">
             <img src="" alt="" id="current-weather-icon" />
           </div>
           <div class="current-weather">
-            <span class="todays-date"></span>
-
             <!--Need date and time to change based on location searched-->
             <br />
 
@@ -73,7 +73,9 @@
         </span>
         <!--End of .current-weather-conditions-->
         <br />
+
         <div class="future-weather-days" id="forecast"></div>
+
         <!--Forecast-->
         <!--End of .future-weather-days-->
         <!--<button id="temp-converter">switch to celcius</button> OLD TEMP CONVERTER BUTTON-->

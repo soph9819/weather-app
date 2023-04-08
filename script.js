@@ -42,7 +42,7 @@ function displayCurrentCityTemp(response) {
     "alt",
     `emoji representing ${response.data.weather[0].description}`
   );
-  windSpeed.innerHTML = `wind: ${Math.round(response.data.wind.speed)} km/h`; //wind
+  windSpeed.innerHTML = `wind: ${Math.round(response.data.wind.speed)} mph`; //wind
   humidity.innerHTML = `humidity: ${response.data.main.humidity}%`; //humidity
   celsiusTemperature = response.data.main.temp;
   //turn event.PreventDefault back on down in celcius conversion (a comment will highlight this) once getForecast is done
