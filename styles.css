@@ -3,7 +3,7 @@
 }
 .container {
   /*previous background-color: #fbc2c3; */
-  background-color: #fe6290;
+  /*background-color: #fe6290;*/
   padding-left: 100px;
   padding-bottom: 100px;
   padding-right: 100px;
@@ -23,7 +23,7 @@
   top: 20px;
   padding: 50px;
   /* From https://css.glass */
-  background: rgba(254, 239, 239, 0.3);
+  background: rgb(181, 107, 240);
   box-shadow: 9px 1px 17px -6px rgba(0, 0, 0, 0.27);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
@@ -138,24 +138,6 @@ h1 {
   text-transform: lowercase;
 }
 
-.future-weather-days {
-  position: relative;
-  text-align: center;
-  left: 110px;
-  font-family: PT Mono, helvetica, arial, sans-serif;
-  color: #ffffff;
-  top: -35px;
-  font-size: 15px;
-}
-
-.future-weather-emojis {
-  font-size: 50px;
-}
-
-.future-weather-high-low {
-  font-size: 12px;
-}
-
 #current-loc-button {
   font-family: PT Mono, Arial, Helvetica, sans-serif;
   font-size: 13px;
@@ -178,7 +160,6 @@ h1 {
 }
 
 .current-temp-holder .active {
-  /* past color: #222227;*/
   color: #ffffff;
   cursor: default;
   text-decoration: none;
@@ -193,8 +174,27 @@ h1 {
 }
 
 .col-2 {
-  background-color: rgba(255, 255, 255, 0.138);
+  background-color: rgba(255, 255, 255, 0.161);
+  /*background: #eabdfe9b;*/
   border-radius: 56% 44% 57% 43% / 37% 47% 53% 63%;
   padding: 18px;
   box-shadow: 9px 1px 17px -6px rgba(0, 0, 0, 0.27);
+}
+
+.future-weather-days {
+  position: relative;
+  text-align: center;
+  left: 110px;
+  font-family: PT Mono, helvetica, arial, sans-serif;
+  color: #ffffff;
+  top: -35px;
+  font-size: 15px;
+}
+
+.future-weather-emojis {
+  font-size: 50px;
+}
+
+.future-weather-high-low {
+  font-size: 12px;
 }
