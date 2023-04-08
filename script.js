@@ -28,7 +28,7 @@ let weatherEmoji = document.querySelector("#current-weather-icon");
 function displayCurrentCityTemp(response) {
   console.log(response);
   console.log(response.data.main.temp);
-  currentTemp.innerHTML = `${Math.round(response.data.main.temp)}`;
+  currentTemp.innerHTML = `${Math.round(response.data.main.temp)}°F`;
   //currentHigh.innerHTML = `${Math.round(response.data.main.temp_max)}`;
   //currentLow.innerHTML = `${Math.round(response.data.main.temp_min)}`;
   currentCondition.innerHTML = `${response.data.weather[0].description}`; //current conditions
@@ -88,7 +88,7 @@ function retrievePosition(position) {
     .then(findCityTemp);
 
   function findCityTemp(response) {
-    currentTemp.innerHTML = `${Math.round(response.data.main.temp)}`;
+    currentTemp.innerHTML = `${Math.round(response.data.main.temp)}°F`;
     response.data.name = response.data.name.toLowerCase();
     currentCity.innerHTML = `${response.data.name}`;
     //currentHigh.innerHTML = `${Math.round(response.data.main.temp_max)}`; //highest temp
