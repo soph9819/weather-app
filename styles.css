@@ -19,9 +19,7 @@ body {
   display: block;
   max-width: 1000px;
   min-width: 900px;
-  /*border-color: black;*/
-  /*border-radius: 50px;*/
-  border-radius: 72% 28% 76% 24% / 12% 91% 9% 88%;
+  border-radius: 72% 28% 76% 24% / 12% 91% 9% 58%;
   margin-top: 20px;
   margin: 0 auto;
   position: relative;

@@ -24,16 +24,13 @@ function formatDate(timestamp) {
 }
 let weatherEmoji = document.querySelector("#current-weather-icon");
 
-//showing weather for searched location or ${currentCity}
-let currentHigh = document.querySelector("#current-high");
-let currentLow = document.querySelector("#current-low");
-
 //function for SEARCHED cities
 function displayCurrentCityTemp(response) {
+  console.log(response);
   console.log(response.data.main.temp);
   currentTemp.innerHTML = `${Math.round(response.data.main.temp)}`;
-  currentHigh.innerHTML = `${Math.round(response.data.main.temp_max)}`;
-  currentLow.innerHTML = `${Math.round(response.data.main.temp_min)}`;
+  //currentHigh.innerHTML = `${Math.round(response.data.main.temp_max)}`;
+  //currentLow.innerHTML = `${Math.round(response.data.main.temp_min)}`;
   currentCondition.innerHTML = `${response.data.weather[0].description}`; //current conditions
   //setting emoji based on current conditions
   weatherEmoji.setAttribute(
@@ -47,11 +44,12 @@ function displayCurrentCityTemp(response) {
   );
   windSpeed.innerHTML = `wind: ${Math.round(response.data.wind.speed)} km/h`; //wind
   humidity.innerHTML = `humidity: ${response.data.main.humidity}%`; //humidity
-  //todaysDate.innerHTML = formatDate(response.data.dr * 1000);
   celsiusTemperature = response.data.main.temp;
-  displayCelsiusTemperature(Event);
   //turn event.PreventDefault back on down in celcius conversion (a comment will highlight this) once getForecast is done
   getForecast(response.data.coord);
+  let todaysDate = document.querySelector(".todays-date");
+  console.log(response);
+  todaysDate.innerHTML = `as of ${formatDate(response.data.dt * 1000)}`;
 }
 
 //setting city that is searched to show in app
@@ -65,7 +63,7 @@ function searchCity(event) {
   //capitalize userinput at some point
   axios //trim etc. {usercityinput} at some point
     .get(
-      `https://api.openweathermap.org/data/2.5/weather?q=${userCityInput.value}&units=metric&appid=515c9ddbeb3cda9061acfab71031839e`
+      `https://api.openweathermap.org/data/2.5/weather?q=${userCityInput.value}&units=imperial&appid=515c9ddbeb3cda9061acfab71031839e`
     )
     .then(displayCurrentCityTemp);
 }
@@ -86,15 +84,15 @@ function retrievePosition(position) {
   let lat = position.coords.latitude;
   let long = position.coords.longitude;
   axios
-    .get(`${apiUrl}${lat}&lon=${long}&units=metric&appid=${apiKey}`)
+    .get(`${apiUrl}${lat}&lon=${long}&units=imperial&appid=${apiKey}`)
     .then(findCityTemp);
 
   function findCityTemp(response) {
     currentTemp.innerHTML = `${Math.round(response.data.main.temp)}`;
     response.data.name = response.data.name.toLowerCase();
     currentCity.innerHTML = `${response.data.name}`;
-    currentHigh.innerHTML = `${Math.round(response.data.main.temp_max)}`; //highest temp
-    currentLow.innerHTML = `${Math.round(response.data.main.temp_min)}`; //lowest temp
+    //currentHigh.innerHTML = `${Math.round(response.data.main.temp_max)}`; //highest temp
+    //currentLow.innerHTML = `${Math.round(response.data.main.temp_min)}`; //lowest temp
     currentCondition.innerHTML = `${response.data.weather[0].description}`; //current conditions
     //setting emoji based on current conditions
     weatherEmoji.setAttribute(
@@ -106,12 +104,15 @@ function retrievePosition(position) {
       "alt",
       `emoji representing ${response.data.weather[0].description}`
     );
-    windSpeed.innerHTML = `wind: ${Math.round(response.data.wind.speed)} km/h`; //wind
+    windSpeed.innerHTML = `wind: ${Math.round(response.data.wind.speed)} mph`; //wind
     humidity.innerHTML = `humidity: ${response.data.main.humidity}%`; //humidity
     //new date time structuring
     let todaysDate = document.querySelector(".todays-date");
-    todaysDate.innerHTML = `as of: ${formatDate(response.data.dr * 1000)}`;
+    todaysDate.innerHTML = `as of ${formatDate(response.data.dt * 1000)}`;
+    console.log(response.data.dt);
     celsiusTemperature = response.data.main.temp;
+    getForecast(response.data.coord);
+    console.log(response);
   }
 }
 
@@ -122,31 +123,6 @@ function currentLocButtonClicked() {
   navigator.geolocation.getCurrentPosition(retrievePosition);
 }
 currentLocButton.addEventListener("click", currentLocButtonClicked);
-
-let celsiusTemperature = null;
-
-//temperature unit conversion
-function displayFahrenheitTemperature(event) {
-  event.preventDefault();
-  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
-  currentTemp.innerHTML = Math.round(fahrenheitTemperature);
-  //removing active class from celsius link:
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-}
-
-function displayCelsiusTemperature(event) {
-  //event.preventDefault(); //COMMENTED THIS  BECAUSE IT WAS AFFECTING FUTURE FORECAST CONSOLE LOG IN displayCurrentCityTemp()??
-  currentTemp.innerHTML = Math.round(celsiusTemperature);
-  fahrenheitLink.classList.remove("active");
-  celsiusLink.classList.add("active");
-}
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
-
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 function formatForecastDay(timestamp) {
   let date = new Date(timestamp * 1000);
@@ -203,6 +179,7 @@ function getForecast(coord) {
   //using seperate shecodes api for forecast
   //possibly go back and change all apiUrl to shecodes api
   let apiKeyForecast = "34432baa786b00b2to4b10aab94b883f";
-  let apiUrlForecast = `https://api.shecodes.io/weather/v1/forecast?lon=${coord.lon}&lat=${coord.lat}&key=${apiKeyForecast}&unit=metric`;
+  let apiUrlForecast = `https://api.shecodes.io/weather/v1/forecast?lon=${coord.lon}&lat=${coord.lat}&key=${apiKeyForecast}&units=imperial`;
+  console.log(apiUrlForecast);
   axios.get(apiUrlForecast).then(displayForecast);
 }
